@@ -61,45 +61,6 @@ public class Customer extends User {
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	
-	// Additional methods for GUI compatibility
-	public String getFirstName() {
-		return name != null ? name.split(" ")[0] : "";
-	}
-	
-	public void setFirstName(String firstName) {
-		if (name == null) {
-			name = firstName;
-		} else {
-			String[] parts = name.split(" ", 2);
-			name = firstName + (parts.length > 1 ? " " + parts[1] : "");
-		}
-	}
-	
-	public String getLastName() {
-		if (name != null && name.contains(" ")) {
-			String[] parts = name.split(" ", 2);
-			return parts.length > 1 ? parts[1] : "";
-		}
-		return "";
-	}
-	
-	public void setLastName(String lastName) {
-		if (name == null) {
-			name = lastName;
-		} else {
-			String[] parts = name.split(" ", 2);
-			name = (parts.length > 0 ? parts[0] : "") + " " + lastName;
-		}
-	}
-	
-	public String getPhone() {
-		return phoneNo;
-	}
-	
-	public void setPhone(String phone) {
-		this.phoneNo = phone;
-	}
 
 	@Override
 	public String toString() {

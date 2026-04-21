@@ -1,72 +1,56 @@
 package com.entity;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PartsUsed {
-	private int requestId;
-	private int partId;
-	private int quantity;
-	private String notes;
+	private int requestID;
+	private int[] parts;
 	
 	public PartsUsed() {
 		
 	}
 	
-	public PartsUsed(int requestId, int partId, int quantity, String notes) {
-		this.requestId = requestId;
-		this.partId = partId;
-		this.quantity = quantity;
-		this.notes = notes;
+	public PartsUsed(int requestID, int[] parts) {
+		this.requestID = requestID;
+		this.parts = parts;
 	}
 
-	public int getRequestId() {
-		return requestId;
+	public int getRequestID() {
+		return requestID;
 	}
 
-	public void setRequestId(int requestId) {
-		this.requestId = requestId;
+	public void setRequestID(int requestID) {
+		this.requestID = requestID;
 	}
 
-	public int getPartId() {
-		return partId;
+	public int[] getParts() {
+		return parts;
 	}
 
-	public void setPartId(int partId) {
-		this.partId = partId;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
+	public void setParts(int[] parts) {
+		this.parts = parts;
 	}
 
 	@Override
 	public String toString() {
 		return String.format(
-				"Request ID: %d | Part ID: %d | Quantity: %d | Notes: %s",
-				requestId, partId, quantity, notes);
+				"Request ID: %d | Parts Used: %s",
+				requestID, Arrays.toString(parts));
 	}
 
+	
 	public void acceptRecord(Scanner sc) {
 		System.out.print("Enter request ID : ");
-		this.requestId = sc.nextInt();
-		System.out.print("Enter part ID : ");
-		this.partId = sc.nextInt();
-		System.out.print("Enter quantity : ");
-		this.quantity = sc.nextInt();
-		sc.nextLine();
-		System.out.print("Enter notes : ");
-		this.notes = sc.nextLine();
+		this.requestID = sc.nextInt();
+		
+		System.out.print("Enter total no of parts used : ");
+		int n = sc.nextInt();
+		parts = new int[n];
+		for(int i=0; i<n; i++) {
+			System.out.print("Enter "+(i+1)+"part ID used : ");
+			parts[i] = sc.nextInt();
+		}
 	}
+	
 }

@@ -49,35 +49,6 @@ public class Parts {
 		this.quantity = quantity;
 	}
 	
-	// Additional methods for GUI compatibility
-	public int getId() {
-		return partNo;
-	}
-	
-	public void setId(int id) {
-		this.partNo = id;
-	}
-	
-	public String getPartNumber() {
-		return String.valueOf(partNo);
-	}
-	
-	public void setPartNumber(String partNumber) {
-		try {
-			this.partNo = Integer.parseInt(partNumber);
-		} catch (NumberFormatException e) {
-			// Handle invalid part number
-		}
-	}
-	
-	public String getDescription() {
-		return "Part: " + partName;
-	}
-	
-	public void setDescription(String description) {
-		// Store description if needed
-	}
-	
 	@Override
 	public String toString() {
 		return String.format(
